@@ -38,6 +38,25 @@ This is the note for AWS Lambda
 
 ![image](https://user-images.githubusercontent.com/79841341/189031910-d4b2ca06-0ef6-4558-90bc-cb9cf43391f5.png)
 
+![image](https://user-images.githubusercontent.com/79841341/189033208-3a769f51-2aac-485b-b6e6-19f70548ec38.png)
+
 ### Lambda Throttling aka RateExceeded
 - Throttling is when Lambda rejects a request
 - Occurs when in flight invocations exceeds available concurrency
+
+### Tips:
+- Alarm on throttles for early indicators of issues by Cloudwatch
+- Evaluate your concurrency needs and plan accordingly
+- Have your clients use Exponential Backoff to avoid retry storms
+- Raising Memory Limit can help, but be careful
+- Use provision concurrency to avoid cold starts, but be careful
+
+## Configuration
+
+### Version
+![image](https://user-images.githubusercontent.com/79841341/189034258-e4247502-f91d-4b02-88f4-8786536fcd0b.png)
+
+### Aliases
+
+![image](https://user-images.githubusercontent.com/79841341/189034688-9fc9e60d-ffc0-4315-85b0-70c983a0b3e8.png)
+
