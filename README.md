@@ -118,5 +118,55 @@ def lambda_handler(event, context):
 - Behind the scenes, Lambda creates Elastic Network Interfaces (ENI)s for each subnet the function is deployed into. This used to be the issue with cold start latency, but not anymore.
 - VPC Endpoints can be used to communicate with some AWS services privately
 - Below is an example that Lambda cannot access directly to internet, but have to go through NAT Gateway in Public Subnet, and NAT Gateway to got Internet Gateway to go out. To connect S3, instead of going out to internet to connect (which cause latency and security issue), we can config VPC for Lambda to connect with S3.
-- 
+
 ![image](https://user-images.githubusercontent.com/79841341/189471873-74ba0b65-ca84-4485-85be-cf27730e74fd.png)
+
+## Monitoring:
+### Logging
+- All logs are automatically  saved in CloudWatch
+
+![image](https://user-images.githubusercontent.com/79841341/189477065-24dab305-ed70-4b65-a8c0-406b42a76670.png)
+
+![image](https://user-images.githubusercontent.com/79841341/189477092-adb8cc78-e3fc-4c7b-b1fd-6ee9b2051608.png)
+
+### Metric Filters
+- Allow to write patterns (similar to REGEX) to extract metrics from log times
+- Much cheaper than PutMetric
+- More suitable for high traffic application
+
+### Cloudwatch Logs Insight
+- Search for patterns across multiple functions at one
+- Pay per use
+- Query similar to SQL
+
+![image](https://user-images.githubusercontent.com/79841341/189477178-d80ac9ee-97b5-479a-8dc5-4b5b362be1e7.png)
+
+### Tips
+- Don't be overly verbose with Logging
+- Embed log lines with important ids to make tracing easier
+- Use Cloudwatch Logs Insights for fuzzy searching
+- Set up a log retention policy or archive regularly
+
+### Hands-on
+
+Create the below function to the result when having error
+
+```python
+def lambda_handler(event, context):
+    print("UploadError 1")
+```
+
+Then we go to CloudWatch to setup the metric filters in Log groups after selecting the targetted function.
+
+![image](https://user-images.githubusercontent.com/79841341/189478045-e87828e1-cd7e-4129-9ebf-913dea6f9f7a.png)
+
+We then define the pattern to capture, and test if the pattern is working
+
+![image](https://user-images.githubusercontent.com/79841341/189478143-106acb35-c081-4f3e-802a-c93602cfe587.png)
+
+Move to the next page to complete the setup for metric filter.
+
+![image](https://user-images.githubusercontent.com/79841341/189478274-f30eaa2c-ec48-4d1b-aa0f-ca41e10001cc.png)
+
+## Performance Tuning adn Observability
+
