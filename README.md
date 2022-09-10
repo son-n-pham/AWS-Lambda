@@ -168,5 +168,11 @@ Move to the next page to complete the setup for metric filter.
 
 ![image](https://user-images.githubusercontent.com/79841341/189478274-f30eaa2c-ec48-4d1b-aa0f-ca41e10001cc.png)
 
-## Performance Tuning adn Observability
+## Performance Tuning and Observability
+
+We can use an open-source step function AWS Lambda Power Tuning to optimize memory and cost
+
+https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:451282441545:applications~aws-lambda-power-tuning
+
+We use the above tool to optimize the below function
 
