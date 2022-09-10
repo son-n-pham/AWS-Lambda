@@ -53,10 +53,29 @@ This is the note for AWS Lambda
 
 ## Configuration
 
-### Version
+### Version:
+
+- Version is optional.
+- New upload default to $LATEST version. When create a version, $LASTEST is assigned automatically to the new version if the new version does not have any specific name.
+
 ![image](https://user-images.githubusercontent.com/79841341/189034258-e4247502-f91d-4b02-88f4-8786536fcd0b.png)
 
 ### Aliases
 
 ![image](https://user-images.githubusercontent.com/79841341/189034688-9fc9e60d-ffc0-4315-85b0-70c983a0b3e8.png)
+
+Example of Aliases:
+- In the begining, we creat Python version 1, and assign Alias prod to that version:
+
+![image](https://user-images.githubusercontent.com/79841341/189459673-90a0623b-7177-49f8-9d5b-66fc31013430.png)
+
+- Now we have version 2, $LATEST version is automatically moved from version 1 to version 2. Alias is still kept at version 1.
+
+![image](https://user-images.githubusercontent.com/79841341/189460061-595577f5-ce0f-4f7e-b12d-2195881b59c7.png)
+
+-Then we create version 3, again $LATEST version is automatically moved from version 2 to version 3. Version 3's performance is good, thus we decide to use it. So we move prod Alias to version 1 to version 3 to direct all flow to that version.
+
+![image](https://user-images.githubusercontent.com/79841341/189460175-d1f7d212-1468-4498-9fa0-96deca661c23.png)
+
+- Interestingly, we can assign weight to different version/alias
 
