@@ -1,5 +1,8 @@
 # AWS Lambda
-This is the note for AWS Lambda
+This is the note for AWS Lambda. The content was from Udemy course AWS Lambda - A Practical Guide from Daniel who has a Youtube channel Be A Better Dev
+
+Presentation from Daniel can be found below:
+https://docs.google.com/presentation/d/1UBgzd0WdBlKygAuTEEhFTMrRiwTKD5ebZvcaYzL68BE/edit#slide=id.g35f391192_04
 
 ## Price
 
@@ -114,3 +117,6 @@ def lambda_handler(event, context):
 - Only necessary when the function needs to access resources not accessible over public internet such as RDS or ElasticSearch in private subnet
 - Behind the scenes, Lambda creates Elastic Network Interfaces (ENI)s for each subnet the function is deployed into. This used to be the issue with cold start latency, but not anymore.
 - VPC Endpoints can be used to communicate with some AWS services privately
+- Below is an example that Lambda cannot access directly to internet, but have to go through NAT Gateway in Public Subnet, and NAT Gateway to got Internet Gateway to go out. To connect S3, instead of going out to internet to connect (which cause latency and security issue), we can config VPC for Lambda to connect with S3.
+- 
+![image](https://user-images.githubusercontent.com/79841341/189471873-74ba0b65-ca84-4485-85be-cf27730e74fd.png)
