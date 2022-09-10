@@ -79,3 +79,24 @@ Example of Aliases:
 
 - Interestingly, we can assign weight to different version/alias
 
+### Environment
+
+![image](https://user-images.githubusercontent.com/79841341/189469297-05a17d8a-f7d7-46dc-b4a8-d30dd9b378fe.png)
+
+- AWS environment is stored. We can access it with os.environ
+- The below code in Lambda would list all AWS environment's keys and values to dictionary.
+```python
+import os
+
+def lambda_handler(event, context):
+    allAWSEnv = os.environ
+    print(allAWSEnv)
+```
+
+![image](https://user-images.githubusercontent.com/79841341/189469162-eb917af9-cbb0-4bc8-a09f-57bcbd9330be.png)
+
+- We can also add new key, value into the environment
+
+![image](https://user-images.githubusercontent.com/79841341/189469210-c35bac71-b71e-437a-a017-ce7845598489.png)
+
+
