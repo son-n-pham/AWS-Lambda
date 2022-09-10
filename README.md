@@ -106,7 +106,7 @@ def lambda_handler(event, context):
 
 
 ### Virtual Private Cloud (VPC)
-- Ss isolated and private network within AWS
+- Is isolated and private network within AWS
 - Public abd Private Subnets
 - Critical for security and apps with compliance guidelines
 
