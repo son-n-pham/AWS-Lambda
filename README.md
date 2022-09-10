@@ -172,7 +172,36 @@ Move to the next page to complete the setup for metric filter.
 
 We can use an open-source step function AWS Lambda Power Tuning to optimize memory and cost
 
+https://github.com/alexcasalboni/aws-lambda-power-tuning
+
 https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:451282441545:applications~aws-lambda-power-tuning
 
 We use the above tool to optimize the below function
 
+```python
+def lambda_handler(event, context):
+    fibonacci_of(100)
+    
+def fibonacci_of(n):
+    if n in {0,1}: # Base case
+        return n
+    return fibonacci_of(n-1) + fibonacci_of(n-2) # Recursive case
+```
+
+The below input is used to run the tuner:
+
+```json
+{
+  "lambdaARN": "Lambda function arn",
+  "powerValues": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "num": 10,
+  "payload": "{}",
+  "parallelInvocation": true,
+  "strategy": "cost"
+}
+```
