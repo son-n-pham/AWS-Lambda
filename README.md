@@ -4,7 +4,7 @@ This is the note for AWS Lambda. The content was from Udemy course AWS Lambda - 
 Presentation from Daniel can be found below:
 https://docs.google.com/presentation/d/1UBgzd0WdBlKygAuTEEhFTMrRiwTKD5ebZvcaYzL68BE/edit#slide=id.g35f391192_04
 
-## Price
+## Pricing
 
 ![image](https://user-images.githubusercontent.com/79841341/189026256-2eb2cf83-235f-477d-98ae-6f3d866b26fd.png)
 
